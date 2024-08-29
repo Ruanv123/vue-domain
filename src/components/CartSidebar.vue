@@ -18,7 +18,7 @@ import { ShoppingCart } from 'lucide-vue-next'
         <ShoppingCart />
       </Button>
     </SheetTrigger>
-    <SheetContent>
+    <SheetContent class="h-full">
       <SheetHeader>
         <SheetTitle>Cart</SheetTitle>
         <SheetDescription>
@@ -28,6 +28,17 @@ import { ShoppingCart } from 'lucide-vue-next'
       </SheetHeader>
 
       <!-- products map -->
+
+      <div>
+        <div class="flex justify-between mt-auto">
+          <h2>Subtotal</h2>
+          <p>$42,000</p>
+        </div>
+        <div class="grid gap-3">
+          <Button variant="outline" class="w-full">View Cart</Button>
+          <Button class="w-full">Checkout</Button>
+        </div>
+      </div>
     </SheetContent>
   </Sheet>
 </template>
