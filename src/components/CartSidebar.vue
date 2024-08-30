@@ -18,7 +18,7 @@ console.log('cartStore', cartStore.getCart)
 
 <template>
   <Sheet>
-    <SheetTrigger>
+    <SheetTrigger data-testid="sheet-trigger">
       <Button>
         <ShoppingCart />
       </Button>
