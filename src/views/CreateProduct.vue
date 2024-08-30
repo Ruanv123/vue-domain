@@ -16,7 +16,10 @@ import * as z from 'zod'
 const formSchema = toTypedSchema(
   z.object({
     name: z.string(),
-    description: z.optional(z.string())
+    description: z.optional(z.string()),
+    price: z.number(),
+    stock: z.number(),
+    category: z.optional(z.string())
   })
 )
 
@@ -45,6 +48,18 @@ const onSubmit = form.handleSubmit((values) => {
             <FormMessage />
           </FormItem>
         </FormField>
+
+        <FormField v-slot="{ componentField }" name="description">
+          <FormItem>
+            <FormLabel>Product description</FormLabel>
+            <FormControl>
+              <Input type="text" placeholder="shadcn" v-bind="componentField" />
+            </FormControl>
+            <!-- <FormDescription> This is your public display name. </FormDescription> -->
+            <FormMessage />
+          </FormItem>
+        </FormField>
+
         <FormField v-slot="{ componentField }" name="description">
           <FormItem>
             <FormLabel>Product description</FormLabel>
