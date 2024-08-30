@@ -1,12 +1,25 @@
-import { ref, computed } from 'vue'
 import { defineStore } from 'pinia'
+import { computed, ref } from 'vue'
 
-export const useCounterStore = defineStore('counter', () => {
-  const count = ref(0)
-  const doubleCount = computed(() => count.value * 2)
-  function increment() {
-    count.value++
+export interface Product {
+  id: number
+  name: string
+  description: string
+  price: number
+}
+
+export const useCartStore = defineStore('cart', () => {
+  const cart = ref<Product[]>([])
+
+  const addToCart = (product: any) => {
+    cart.value = [...cart.value, product]
   }
 
-  return { count, doubleCount, increment }
+  const getCart = computed(() => cart.value)
+
+  const clearCart = () => {
+    cart.value = []
+  }
+
+  return { cart, addToCart, getCart, clearCart }
 })
